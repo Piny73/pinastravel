@@ -3,20 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package it.tsp;
+
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 /**
  *
  * @author utentepc
  */
 public class Travel {
-   private String città;
-   private String durata;
-   private BigDecimal prezzo;
-   private String trasporto;
-   private LocalDate datapartenza;
 
-    public Travel(String città, String durata, BigDecimal prezzo, String trasporto, LocalDate datapartenza) {
+    private String città;
+    private String durata;
+    private BigDecimal prezzo;
+    private String trasporto;
+    private LocalDateTime datapartenza;
+
+    public Travel(String città, String durata, BigDecimal prezzo, String trasporto, LocalDateTime datapartenza) {
         this.città = città;
         this.durata = durata;
         this.prezzo = prezzo;
@@ -28,7 +31,7 @@ public class Travel {
         return città;
     }
 
-    public LocalDate getDatapartenza() {
+    public LocalDateTime getDatapartenza() {
         return datapartenza;
     }
 
@@ -48,7 +51,7 @@ public class Travel {
         this.città = città;
     }
 
-    public void setDatapartenza(LocalDate datapartenza) {
+    public void setDatapartenza(LocalDateTime datapartenza) {
         this.datapartenza = datapartenza;
     }
 
@@ -78,6 +81,5 @@ public class Travel {
     public String toString() {
         return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-   
-}
 
+}

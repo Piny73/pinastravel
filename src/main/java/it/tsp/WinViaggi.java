@@ -14,6 +14,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -76,6 +77,11 @@ public class WinViaggi extends javax.swing.JFrame {
         lstTravel = new javax.swing.JList<>();
         lbTravel = new javax.swing.JLabel();
         spDayPrice = new javax.swing.JSpinner();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblPartecipants = new javax.swing.JTable();
+        lbPartecipants = new javax.swing.JLabel();
+        lbPrezzoPrenotazione = new javax.swing.JLabel();
+        spTotalPrice = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -230,6 +236,36 @@ public class WinViaggi extends javax.swing.JFrame {
         lbTravel.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         lbTravel.setText("Lista viaggi");
 
+        tblPartecipants.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        tblPartecipants.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Cognome", "Città", "DataPartenza", "PrezzoFinale"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tblPartecipants);
+        if (tblPartecipants.getColumnModel().getColumnCount() > 0) {
+            tblPartecipants.getColumnModel().getColumn(2).setResizable(false);
+            tblPartecipants.getColumnModel().getColumn(3).setResizable(false);
+            tblPartecipants.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        lbPartecipants.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        lbPartecipants.setText("Lista Partecipanti ai viaggi");
+
+        lbPrezzoPrenotazione.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        lbPrezzoPrenotazione.setText("Prezzo Totale:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -260,22 +296,29 @@ public class WinViaggi extends javax.swing.JFrame {
                             .addComponent(lbCarriage)
                             .addComponent(lbDepartureDate)
                             .addComponent(lbDayPrice)
-                            .addComponent(btSigninTravel))
+                            .addComponent(btSigninTravel)
+                            .addComponent(lbPrezzoPrenotazione))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txCarriage, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(txDestination, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(txLength, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(txDepartureDate, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(spDayPrice))))
+                            .addComponent(spDayPrice)
+                            .addComponent(spTotalPrice))))
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbTravel)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-                        .addComponent(lbAccounTurist)
-                        .addComponent(jScrollPane2)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                    .addComponent(lbAccounTurist)
+                    .addComponent(jScrollPane2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbPartecipants)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +379,19 @@ public class WinViaggi extends javax.swing.JFrame {
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btSigninTravel)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 58, Short.MAX_VALUE)
+                        .addComponent(lbPartecipants)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbPrezzoPrenotazione))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -448,8 +503,9 @@ public class WinViaggi extends javax.swing.JFrame {
         String trasporto = txCarriage.getText();
 
         String dateString = txDepartureDate.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDate datapartenza = LocalDate.parse(dateString, formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime datapartenza = LocalDateTime.parse(dateString, formatter);
+        
 
         Travel trip = new Travel(città, durata, prezzo, trasporto, datapartenza);
         txDestination.setText("");
@@ -520,6 +576,7 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JButton btSigninTurist;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbAccounTurist;
     private javax.swing.JLabel lbCarriage;
     private javax.swing.JLabel lbDayPrice;
@@ -528,7 +585,9 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JLabel lbLength;
     private javax.swing.JLabel lbNewAccounTurist;
     private javax.swing.JLabel lbNewTravel;
+    private javax.swing.JLabel lbPartecipants;
     private javax.swing.JLabel lbPinasTravel;
+    private javax.swing.JLabel lbPrezzoPrenotazione;
     private javax.swing.JLabel lbTravel;
     private javax.swing.JLabel lbemail;
     private javax.swing.JLabel lbfname;
@@ -537,6 +596,8 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JList<String> lstAccounTurist;
     private javax.swing.JList<String> lstTravel;
     private javax.swing.JSpinner spDayPrice;
+    private javax.swing.JSpinner spTotalPrice;
+    private javax.swing.JTable tblPartecipants;
     private javax.swing.JTextField txCarriage;
     private javax.swing.JTextField txDepartureDate;
     private javax.swing.JTextField txDestination;
