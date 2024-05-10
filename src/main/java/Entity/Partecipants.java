@@ -18,22 +18,22 @@ public class Partecipants {
     @Column(name = "idPartecipants")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "Fname", nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(name = "Lname",nullable = false)
     private String cognome;
 
-    @Column(nullable = false)
+    @Column(name = "Phone",nullable = false)
     private String telefono;
 
-    @Column(nullable = false)
+    @Column(name = "Destination",nullable = false)
     private String città;
 
-    @Column(nullable = false)
+    @Column(name = "DepartureDate", nullable = false)
     private LocalDateTime dataPartenza;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "TotalPrice", nullable = false, precision = 10, scale = 2)
     private BigDecimal prezzofinale;
 
     // Getters and Setters
