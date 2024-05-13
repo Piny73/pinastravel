@@ -16,7 +16,7 @@ public class Partecipants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPartecipants")
-    private Long id;
+    private Long idPartecipante;
 
     @Column(name = "Fname", nullable = false)
     private String nome;
@@ -38,11 +38,11 @@ public class Partecipants {
 
     // Getters and Setters
     public Long getId() {
-        return id;
+        return idPartecipante;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long idPartecipante) {
+        this.idPartecipante = idPartecipante;
     }
 
     public String getNome() {

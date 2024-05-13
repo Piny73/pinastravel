@@ -10,27 +10,28 @@ import jakarta.persistence.Column;
 public class AccounTurist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "idAccounturist")
+    private Long idAccounTurista;
 
-    @Column(nullable = false)
+    @Column(name = "Fname",nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(name = "Lname",nullable = false)
     private String cognome;
 
-    @Column(nullable = false)
+    @Column(name = "Phone",nullable = false)
     private String telefono;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "Email",nullable = false, unique = true)
     private String email;
 
     // Getters and Setters
     public Long getId() {
-        return id;
+        return idAccounTurista;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setidAccounTurista(Long idAccounTurista) {
+        this.idAccounTurista = idAccounTurista;
     }
 
     public String getNome() {

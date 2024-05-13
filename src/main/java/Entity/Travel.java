@@ -15,31 +15,32 @@ public class Travel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "idTravel")
+    private Long idViaggio;
 
-    @Column(nullable = false)
+    @Column(name = "Destination",nullable = false)
     private String città;
 
-    @Column(nullable = false)
+    @Column(name = "Length",nullable = false)
     private String durata;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "DayPrice",nullable = false, precision = 10, scale = 2)
     private BigDecimal prezzo;
 
-    @Column(nullable = false)
+    @Column(name = "Carriage",nullable = false)
     private String trasporto;
 
-    @Column(nullable = false)
+    @Column(name = "DepartureDate",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime datapartenza;
 
     // Getters and Setters
     public Long getId() {
-        return id;
+        return idViaggio;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long idViaggio) {
+        this.idViaggio = idViaggio;
     }
 
     public String getCittà() {
