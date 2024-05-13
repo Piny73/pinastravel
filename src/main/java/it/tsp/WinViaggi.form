@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -26,65 +26,104 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lbNewAccounTurist" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbPinasTravel" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbfname" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblname" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbphone" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbemail" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSigninTurist" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txFname" max="32767" attributes="0"/>
-                          <Component id="txLname" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txPhone" max="32767" attributes="0"/>
-                          <Component id="txEmail" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="lbNewTravel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbDestination" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbLength" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbCarriage" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbDepartureDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbDayPrice" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSigninTravel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbPrezzoPrenotazione" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txCarriage" pref="300" max="32767" attributes="0"/>
-                          <Component id="txDestination" pref="300" max="32767" attributes="0"/>
-                          <Component id="txLength" pref="300" max="32767" attributes="0"/>
-                          <Component id="txDepartureDate" pref="300" max="32767" attributes="0"/>
-                          <Component id="spDayPrice" alignment="0" max="32767" attributes="0"/>
-                          <Component id="spTotalPrice" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lbTravel" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="476" max="32767" attributes="0"/>
-                  <Component id="lbAccounTurist" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbPartecipants" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="984" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="lbfname" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblname" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbphone" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbemail" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btSigninTurist" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lbPinasTravel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lbDestination" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbLength" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbDayPrice" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbCarriage" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbNewTravel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbNewAccounTurist" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="btSigninTravel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbDepartureDate" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txDepartureDate" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txCarriage" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="spDayPrice" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txLength" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txDestination" min="-2" pref="300" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="txLname" min="-2" pref="301" max="-2" attributes="0"/>
+                                  <Component id="txFname" min="-2" pref="301" max="-2" attributes="0"/>
+                                  <Component id="txPhone" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
+                                  <Component id="txEmail" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" alignment="0" min="-2" pref="542" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="542" max="-2" attributes="0"/>
+                          <Component id="lbAccounTurist" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbTravel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="btPartecipants" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbDepartureDateP" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lbFnameP" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbLnameP" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbDestinationP" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txDepartureDateP" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txFnameP" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txLnameP" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txDestinationP" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lbPrezzoPrenotazione" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbPartecipants" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="562" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,14 +131,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lbPinasTravel" min="-2" pref="31" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbNewAccounTurist" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbAccounTurist" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lbPinasTravel" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbNewAccounTurist" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbfname" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
@@ -121,20 +157,27 @@
                           <Component id="txEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lbAccounTurist" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btSigninTurist" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="lbTravel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lbTravel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="156" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="lbNewTravel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txDestination" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbDestination" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txDestination" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbDestination" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -148,36 +191,54 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txCarriage" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbCarriage" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="txCarriage" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txDepartureDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbDepartureDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txDepartureDate" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane2" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btSigninTravel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
-                      <Component id="lbPartecipants" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="189" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lbPartecipants" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="177" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btSigninTravel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <Component id="lbPrezzoPrenotazione" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="spTotalPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbPrezzoPrenotazione" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbFnameP" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="txFnameP" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbLnameP" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="txLnameP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbDestinationP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txDestinationP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbDepartureDateP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txDepartureDateP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btPartecipants" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -320,7 +381,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Consolas" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="prezzo giornaliero:"/>
+        <Property name="text" type="java.lang.String" value="prezzo/gg:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbCarriage">
@@ -408,7 +469,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblPartecipants">
+        <Component class="javax.swing.JTable" name="tbPartecipants">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Consolas" size="14" style="0"/>
@@ -463,7 +524,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Consolas" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Lista Partecipanti ai viaggi"/>
+        <Property name="text" type="java.lang.String" value="Lista Prenotazioni"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbPrezzoPrenotazione">
@@ -471,10 +532,72 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Consolas" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Prezzo Totale:"/>
+        <Property name="text" type="java.lang.String" value="Prenotazione Viaggi"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="spTotalPrice">
+    <Component class="javax.swing.JLabel" name="lbDestinationP">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Consolas" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Citt&#xe0;:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txDestinationP">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txDestinationPActionPerformed"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="txDestinationPPropertyChange"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbFnameP">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Consolas" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbLnameP">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Consolas" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cognome:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txFnameP">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txFnamePActionPerformed"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="txFnamePPropertyChange"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txLnameP">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txLnamePActionPerformed"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="txLnamePPropertyChange"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbDepartureDateP">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Consolas" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Data partenza:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txDepartureDateP">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txDepartureDatePActionPerformed"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="txDepartureDatePPropertyChange"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btPartecipants">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prenota"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btPartecipantsActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

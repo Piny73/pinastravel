@@ -27,8 +27,9 @@ public class WinViaggi extends javax.swing.JFrame {
     static final String USER = "root";
     static final String PASS = "root";
     Connection conn;
-    ArrayList<Integer> listaccounturist = new ArrayList<Integer>();
-    ArrayList<Integer> listtravel = new ArrayList<Integer>();
+    ArrayList<Integer> listIdaccounturist = new ArrayList<Integer>();
+    ArrayList<Integer> listIdtravel = new ArrayList<Integer>();
+    ArrayList<Integer> listIdpartecipants = new ArrayList<Integer>();
 
     /**
      * Creates new form WinViaggi
@@ -78,10 +79,18 @@ public class WinViaggi extends javax.swing.JFrame {
         lbTravel = new javax.swing.JLabel();
         spDayPrice = new javax.swing.JSpinner();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblPartecipants = new javax.swing.JTable();
+        tbPartecipants = new javax.swing.JTable();
         lbPartecipants = new javax.swing.JLabel();
         lbPrezzoPrenotazione = new javax.swing.JLabel();
-        spTotalPrice = new javax.swing.JSpinner();
+        lbDestinationP = new javax.swing.JLabel();
+        txDestinationP = new javax.swing.JTextField();
+        lbFnameP = new javax.swing.JLabel();
+        lbLnameP = new javax.swing.JLabel();
+        txFnameP = new javax.swing.JTextField();
+        txLnameP = new javax.swing.JTextField();
+        lbDepartureDateP = new javax.swing.JLabel();
+        txDepartureDateP = new javax.swing.JTextField();
+        btPartecipants = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -171,7 +180,7 @@ public class WinViaggi extends javax.swing.JFrame {
         lbLength.setText("Durata (gg):");
 
         lbDayPrice.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        lbDayPrice.setText("prezzo giornaliero:");
+        lbDayPrice.setText("prezzo/gg:");
 
         lbCarriage.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         lbCarriage.setText("Trasporto:");
@@ -236,8 +245,8 @@ public class WinViaggi extends javax.swing.JFrame {
         lbTravel.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         lbTravel.setText("Lista viaggi");
 
-        tblPartecipants.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        tblPartecipants.setModel(new javax.swing.table.DefaultTableModel(
+        tbPartecipants.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        tbPartecipants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -253,84 +262,171 @@ public class WinViaggi extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tblPartecipants);
-        if (tblPartecipants.getColumnModel().getColumnCount() > 0) {
-            tblPartecipants.getColumnModel().getColumn(2).setResizable(false);
-            tblPartecipants.getColumnModel().getColumn(3).setResizable(false);
-            tblPartecipants.getColumnModel().getColumn(4).setResizable(false);
+        jScrollPane3.setViewportView(tbPartecipants);
+        if (tbPartecipants.getColumnModel().getColumnCount() > 0) {
+            tbPartecipants.getColumnModel().getColumn(2).setResizable(false);
+            tbPartecipants.getColumnModel().getColumn(3).setResizable(false);
+            tbPartecipants.getColumnModel().getColumn(4).setResizable(false);
         }
 
         lbPartecipants.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        lbPartecipants.setText("Lista Partecipanti ai viaggi");
+        lbPartecipants.setText("Lista Prenotazioni");
 
         lbPrezzoPrenotazione.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        lbPrezzoPrenotazione.setText("Prezzo Totale:");
+        lbPrezzoPrenotazione.setText("Prenotazione Viaggi");
+
+        lbDestinationP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        lbDestinationP.setText("Città:");
+
+        txDestinationP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txDestinationPActionPerformed(evt);
+            }
+        });
+        txDestinationP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txDestinationPPropertyChange(evt);
+            }
+        });
+
+        lbFnameP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        lbFnameP.setText("Nome:");
+
+        lbLnameP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        lbLnameP.setText("Cognome:");
+
+        txFnameP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txFnamePActionPerformed(evt);
+            }
+        });
+        txFnameP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txFnamePPropertyChange(evt);
+            }
+        });
+
+        txLnameP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txLnamePActionPerformed(evt);
+            }
+        });
+        txLnameP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txLnamePPropertyChange(evt);
+            }
+        });
+
+        lbDepartureDateP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        lbDepartureDateP.setText("Data partenza:");
+
+        txDepartureDateP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txDepartureDatePActionPerformed(evt);
+            }
+        });
+        txDepartureDateP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txDepartureDatePPropertyChange(evt);
+            }
+        });
+
+        btPartecipants.setText("Prenota");
+        btPartecipants.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPartecipantsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbNewAccounTurist)
-                    .addComponent(lbPinasTravel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbfname)
-                            .addComponent(lblname)
-                            .addComponent(lbphone)
-                            .addComponent(lbemail)
-                            .addComponent(btSigninTurist))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txFname)
-                            .addComponent(txLname)
-                            .addComponent(txPhone)
-                            .addComponent(txEmail)))
-                    .addComponent(lbNewTravel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbDestination)
-                            .addComponent(lbLength)
-                            .addComponent(lbCarriage)
-                            .addComponent(lbDepartureDate)
-                            .addComponent(lbDayPrice)
-                            .addComponent(btSigninTravel)
-                            .addComponent(lbPrezzoPrenotazione))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txCarriage, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txDestination, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txLength, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txDepartureDate, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(spDayPrice)
-                            .addComponent(spTotalPrice))))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbTravel)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-                    .addComponent(lbAccounTurist)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbPartecipants)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbfname)
+                                .addComponent(lblname)
+                                .addComponent(lbphone)
+                                .addComponent(lbemail)
+                                .addComponent(btSigninTurist))
+                            .addComponent(lbPinasTravel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbDestination)
+                                    .addComponent(lbLength)
+                                    .addComponent(lbDayPrice)
+                                    .addComponent(lbCarriage)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbNewTravel)
+                                .addComponent(lbNewAccounTurist, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btSigninTravel)
+                                    .addComponent(lbDepartureDate))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txCarriage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spDayPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txLength, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txLname, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txFname, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbAccounTurist)
+                            .addComponent(lbTravel))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btPartecipants)
+                                        .addComponent(lbDepartureDateP))
+                                    .addComponent(lbFnameP, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbLnameP, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbDestinationP, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txDepartureDateP, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txDestinationP, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbPrezzoPrenotazione))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbPartecipants)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbPinasTravel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbNewAccounTurist)
-                            .addComponent(lbAccounTurist))
+                        .addComponent(lbPinasTravel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbNewAccounTurist)
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbfname, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,19 +443,24 @@ public class WinViaggi extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbemail, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbAccounTurist)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btSigninTurist)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbTravel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbTravel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbNewTravel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbDestination))
+                            .addComponent(lbDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbLength)
@@ -370,28 +471,43 @@ public class WinViaggi extends javax.swing.JFrame {
                             .addComponent(spDayPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txCarriage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbCarriage, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
+                            .addComponent(lbCarriage, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txCarriage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbDepartureDate)))
-                    .addComponent(jScrollPane2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btSigninTravel)
-                .addGap(51, 51, 51)
+                            .addComponent(lbDepartureDate)
+                            .addComponent(txDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 58, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbPartecipants)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btSigninTravel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(lbPrezzoPrenotazione)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbPrezzoPrenotazione))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(lbFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbDestinationP)
+                            .addComponent(txDestinationP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbDepartureDateP)
+                            .addComponent(txDepartureDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btPartecipants)
+                        .addGap(14, 14, 14))))
         );
 
         pack();
@@ -536,6 +652,45 @@ public class WinViaggi extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btSigninTravelActionPerformed
 
+    private void txDestinationPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDestinationPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txDestinationPActionPerformed
+
+    private void txDestinationPPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txDestinationPPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txDestinationPPropertyChange
+
+    private void txFnamePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txFnamePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txFnamePActionPerformed
+
+    private void txFnamePPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txFnamePPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txFnamePPropertyChange
+
+    private void txLnamePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txLnamePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txLnamePActionPerformed
+
+    private void txLnamePPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txLnamePPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txLnamePPropertyChange
+
+    private void txDepartureDatePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDepartureDatePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txDepartureDatePActionPerformed
+
+    private void txDepartureDatePPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txDepartureDatePPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txDepartureDatePPropertyChange
+
+    private void btPartecipantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPartecipantsActionPerformed
+        // TODO add your handling code here:
+        
+        
+            
+    }//GEN-LAST:event_btPartecipantsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -572,6 +727,7 @@ public class WinViaggi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btPartecipants;
     private javax.swing.JButton btSigninTravel;
     private javax.swing.JButton btSigninTurist;
     private javax.swing.JScrollPane jScrollPane1;
@@ -581,8 +737,12 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JLabel lbCarriage;
     private javax.swing.JLabel lbDayPrice;
     private javax.swing.JLabel lbDepartureDate;
+    private javax.swing.JLabel lbDepartureDateP;
     private javax.swing.JLabel lbDestination;
+    private javax.swing.JLabel lbDestinationP;
+    private javax.swing.JLabel lbFnameP;
     private javax.swing.JLabel lbLength;
+    private javax.swing.JLabel lbLnameP;
     private javax.swing.JLabel lbNewAccounTurist;
     private javax.swing.JLabel lbNewTravel;
     private javax.swing.JLabel lbPartecipants;
@@ -596,15 +756,18 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JList<String> lstAccounTurist;
     private javax.swing.JList<String> lstTravel;
     private javax.swing.JSpinner spDayPrice;
-    private javax.swing.JSpinner spTotalPrice;
-    private javax.swing.JTable tblPartecipants;
+    private javax.swing.JTable tbPartecipants;
     private javax.swing.JTextField txCarriage;
     private javax.swing.JTextField txDepartureDate;
+    private javax.swing.JTextField txDepartureDateP;
     private javax.swing.JTextField txDestination;
+    private javax.swing.JTextField txDestinationP;
     private javax.swing.JTextField txEmail;
     private javax.swing.JTextField txFname;
+    private javax.swing.JTextField txFnameP;
     private javax.swing.JTextField txLength;
     private javax.swing.JTextField txLname;
+    private javax.swing.JTextField txLnameP;
     private javax.swing.JTextField txPhone;
     // End of variables declaration//GEN-END:variables
 
@@ -614,10 +777,10 @@ public class WinViaggi extends javax.swing.JFrame {
             PreparedStatement stmt = conn.prepareStatement("SELECT idAccounTurist, concat(Lname,' ',Fname) as turista FROM pinastravel.accounturist order by turista;");
             ResultSet rs = stmt.executeQuery();
             DefaultListModel model = new DefaultListModel();
-            listaccounturist.clear();
+            listIdaccounturist.clear();
             while (rs.next()) {
                 model.addElement(rs.getString("turista"));
-                listaccounturist.add(rs.getInt("idAccounTurist"));
+                listIdaccounturist.add(rs.getInt("idAccounTurist"));
                 // Retrieve by column name              
             }
             lstAccounTurist.setModel(model);
@@ -632,13 +795,36 @@ public class WinViaggi extends javax.swing.JFrame {
             PreparedStatement stmt = conn.prepareStatement("SELECT idTravel,concat(Destination,' - ',Length,' giorni',' - ',DayPrice,' € al giorno') as destinazione FROM pinastravel.travel order by destinazione;");
             ResultSet rs = stmt.executeQuery();
             DefaultListModel model = new DefaultListModel();
-            listtravel.clear();
+            listIdtravel.clear();
             while (rs.next()) {
                 model.addElement(rs.getString("destinazione"));
-                listtravel.add(rs.getInt("idTravel"));
+                listIdtravel.add(rs.getInt("idTravel"));
                 // Retrieve by column name              
             }
             lstTravel.setModel(model);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    private void refreshtblPartecipants() {
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            PreparedStatement stmt = conn.prepareStatement("SELECT Fname,Lname,Destination,DepartureDate,TatalPrice FROM pinastravel.partecipants order by Lname desc");
+            ResultSet rs = stmt.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) tbPartecipants.getModel();
+            listIdpartecipants.clear();
+                while (rs.next()) {
+                String n = rs.getString("Nome");
+                String c = rs.getString("Cognome");
+                String cit = rs.getString("Città");
+                String dp = rs.getString("DataPartenza");
+                int pf = rs.getInt("PrezzoFinale");
+                Object [] record = new Object[]{
+                    n,c,cit,dp,pf};                
+                model.addRow(record);
+                // Retrieve by column name              
+            }
+            tbPartecipants.setModel(model);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
