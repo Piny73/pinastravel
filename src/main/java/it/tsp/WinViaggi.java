@@ -38,6 +38,7 @@ public class WinViaggi extends javax.swing.JFrame {
         initComponents();
         refreshListaccounturist();
         refreshListtravel();
+        refreshtbPartecipants();
     }
 
     /**
@@ -87,14 +88,8 @@ public class WinViaggi extends javax.swing.JFrame {
         lbFnameP = new javax.swing.JLabel();
         lbLnameP = new javax.swing.JLabel();
         txFnameP = new javax.swing.JTextField();
-        txPhoneP = new javax.swing.JTextField();
-        lbDepartureDateP = new javax.swing.JLabel();
-        txDepartureDateP = new javax.swing.JTextField();
         btPartecipants = new javax.swing.JButton();
-        lbphoneP = new javax.swing.JLabel();
         txLnameP = new javax.swing.JTextField();
-        lbTotalPriceP = new javax.swing.JLabel();
-        spTotalPriceP = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -255,14 +250,14 @@ public class WinViaggi extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Cognome", "Telefono", "Città", "DataPartenza", "PrezzoFinale"
+                "Nome", "Cognome", "Città", "PrezzoFinale"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -279,8 +274,6 @@ public class WinViaggi extends javax.swing.JFrame {
             tbPartecipants.getColumnModel().getColumn(1).setResizable(false);
             tbPartecipants.getColumnModel().getColumn(2).setResizable(false);
             tbPartecipants.getColumnModel().getColumn(3).setResizable(false);
-            tbPartecipants.getColumnModel().getColumn(4).setResizable(false);
-            tbPartecipants.getColumnModel().getColumn(5).setResizable(false);
         }
 
         lbPartecipants.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -320,40 +313,12 @@ public class WinViaggi extends javax.swing.JFrame {
             }
         });
 
-        txPhoneP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txPhonePActionPerformed(evt);
-            }
-        });
-        txPhoneP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txPhonePPropertyChange(evt);
-            }
-        });
-
-        lbDepartureDateP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        lbDepartureDateP.setText("Data partenza:");
-
-        txDepartureDateP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txDepartureDatePActionPerformed(evt);
-            }
-        });
-        txDepartureDateP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txDepartureDatePPropertyChange(evt);
-            }
-        });
-
         btPartecipants.setText("Prenota");
         btPartecipants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPartecipantsActionPerformed(evt);
             }
         });
-
-        lbphoneP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        lbphoneP.setText("Telefono:");
 
         txLnameP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,9 +330,6 @@ public class WinViaggi extends javax.swing.JFrame {
                 txLnamePPropertyChange(evt);
             }
         });
-
-        lbTotalPriceP.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        lbTotalPriceP.setText("prezzo finale:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -406,36 +368,19 @@ public class WinViaggi extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(72, 72, 72)
-                                            .addComponent(lbFnameP)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(46, 46, 46)
-                                            .addComponent(lbLnameP)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txLnameP))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lbphoneP)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txPhoneP, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lbDestinationP)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txDestinationP, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lbDepartureDateP)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txDepartureDateP, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lbPrezzoPrenotazione)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btPartecipants)
-                                            .addComponent(lbTotalPriceP))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spTotalPriceP, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbPrezzoPrenotazione))
+                                            .addComponent(lbFnameP)
+                                            .addComponent(lbDestinationP)
+                                            .addComponent(lbLnameP)
+                                            .addComponent(btPartecipants))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txDestinationP, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                                            .addComponent(txLnameP)
+                                            .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3)
@@ -540,34 +485,22 @@ public class WinViaggi extends javax.swing.JFrame {
                     .addComponent(lbPrezzoPrenotazione, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txFnameP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(7, 7, 7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txPhoneP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbphoneP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txDestinationP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbDestinationP))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txDepartureDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbDepartureDateP))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lbTotalPriceP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spTotalPriceP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btPartecipants)
-                .addGap(0, 84, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbLnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txDestinationP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDestinationP))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btPartecipants))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 125, Short.MAX_VALUE))
         );
 
         pack();
@@ -681,7 +614,6 @@ public class WinViaggi extends javax.swing.JFrame {
         String dateString = txDepartureDate.getText();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime datapartenza = LocalDateTime.parse(dateString, formatter);
-        
 
         Travel trip = new Travel(città, durata, prezzo, trasporto, datapartenza);
         txDestination.setText("");
@@ -728,55 +660,31 @@ public class WinViaggi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txFnamePPropertyChange
 
-    private void txPhonePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPhonePActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txPhonePActionPerformed
-
-    private void txPhonePPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txPhonePPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txPhonePPropertyChange
-
-    private void txDepartureDatePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDepartureDatePActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txDepartureDatePActionPerformed
-
-    private void txDepartureDatePPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txDepartureDatePPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txDepartureDatePPropertyChange
-
     private void btPartecipantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPartecipantsActionPerformed
         // TODO add your handling code here:
         String nome = txFnameP.getText();
         String cognome = txLnameP.getText();
-        String telefono = txPhoneP.getText();
         String città = txDestinationP.getText();
-        String dateString = txDepartureDate.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dataPartenza = LocalDateTime.parse(dateString, formatter);
-        Number numero = (Number) spDayPrice.getValue();
-        BigDecimal prezzoFinale = BigDecimal.valueOf(numero.doubleValue());
-        
+        String prezzoFinale = "0";
 
-        Partecipants partecip = new Partecipants(nome, cognome, telefono, città, dataPartenza, prezzoFinale);
+        Partecipants partecip = new Partecipants(nome, cognome, città);
         txFnameP.setText("");
         txLnameP.setText("");
-        txPhoneP.setText("");
         txDestinationP.setText("");
-        txDepartureDateP.setText("");
-        spTotalPriceP.setValue("");
 
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            PreparedStatement stmt = conn.prepareStatement("insert INTO Partecipants (Fname,Lname,Phone,Destination,DepartureDate,TotalPrice ) "
-                    + "values(?,?,?,?,?,?)");
-            stmt.setString(1, nome);
-            stmt.setString(2, cognome);
-            stmt.setString(3, telefono);
-            stmt.setString(4, città);
-            String dataPartenzaString = dataPartenza.toString();
-            stmt.setString(5, dataPartenzaString);
-            stmt.setString(6, prezzoFinale.toString());
-            int rows = stmt.executeUpdate();
+            PreparedStatement stmt = conn.prepareStatement("UPDATE partecipants p INNER JOIN travel t ON p.Destination = t.Destination SET p.TotalPrice = (t.DayPrice * t.Length)");
+            stmt.executeUpdate();
+
+            PreparedStatement insertStmt = conn.prepareStatement("INSERT INTO partecipants (Fname, Lname, Destination, TotalPrice) "
+                    + "VALUES (?, ?, ?, ?)");
+            insertStmt.setString(1, nome);
+            insertStmt.setString(2, cognome);
+            insertStmt.setString(3, città);
+            insertStmt.setString(4, prezzoFinale);
+            int rows = insertStmt.executeUpdate();
+
             System.out.println("Row impacted: " + rows);
             refreshtbPartecipants();
 
@@ -784,9 +692,8 @@ public class WinViaggi extends javax.swing.JFrame {
             System.out.println(e);
 
         }
-  
-        
-            
+
+
     }//GEN-LAST:event_btPartecipantsActionPerformed
 
     private void txLnamePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txLnamePActionPerformed
@@ -843,7 +750,6 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JLabel lbCarriage;
     private javax.swing.JLabel lbDayPrice;
     private javax.swing.JLabel lbDepartureDate;
-    private javax.swing.JLabel lbDepartureDateP;
     private javax.swing.JLabel lbDestination;
     private javax.swing.JLabel lbDestinationP;
     private javax.swing.JLabel lbFnameP;
@@ -854,21 +760,17 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JLabel lbPartecipants;
     private javax.swing.JLabel lbPinasTravel;
     private javax.swing.JLabel lbPrezzoPrenotazione;
-    private javax.swing.JLabel lbTotalPriceP;
     private javax.swing.JLabel lbTravel;
     private javax.swing.JLabel lbemail;
     private javax.swing.JLabel lbfname;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lbphone;
-    private javax.swing.JLabel lbphoneP;
     private javax.swing.JList<String> lstAccounTurist;
     private javax.swing.JList<String> lstTravel;
     private javax.swing.JSpinner spDayPrice;
-    private javax.swing.JSpinner spTotalPriceP;
     private javax.swing.JTable tbPartecipants;
     private javax.swing.JTextField txCarriage;
     private javax.swing.JTextField txDepartureDate;
-    private javax.swing.JTextField txDepartureDateP;
     private javax.swing.JTextField txDestination;
     private javax.swing.JTextField txDestinationP;
     private javax.swing.JTextField txEmail;
@@ -878,7 +780,6 @@ public class WinViaggi extends javax.swing.JFrame {
     private javax.swing.JTextField txLname;
     private javax.swing.JTextField txLnameP;
     private javax.swing.JTextField txPhone;
-    private javax.swing.JTextField txPhoneP;
     // End of variables declaration//GEN-END:variables
 
     private void refreshListaccounturist() {
@@ -891,7 +792,6 @@ public class WinViaggi extends javax.swing.JFrame {
             while (rs.next()) {
                 model.addElement(rs.getString("turista"));
                 listIdaccounturist.add(rs.getInt("idAccounTurist"));
-                // Retrieve by column name              
             }
             lstAccounTurist.setModel(model);
         } catch (Exception e) {
@@ -909,44 +809,38 @@ public class WinViaggi extends javax.swing.JFrame {
             while (rs.next()) {
                 model.addElement(rs.getString("destinazione"));
                 listIdtravel.add(rs.getInt("idTravel"));
-                // Retrieve by column name              
+
             }
             lstTravel.setModel(model);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
     private void refreshtbPartecipants() {
-    try {
-        conn = DriverManager.getConnection(DB_URL, USER, PASS);
-        PreparedStatement stmt = conn.prepareStatement("SELECT Fname, Lname, Destination, DepartureDate, TotalPrice FROM pinastravel.partecipants ORDER BY Lname DESC");
-        
-        ResultSet rs = stmt.executeQuery();
-        
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("First Name");
-        model.addColumn("Last Name");
-        model.addColumn("Destination");
-        model.addColumn("Departure Date");
-        model.addColumn("Total Price");
-        
-        listIdpartecipants.clear();
-        
-        while (rs.next()) {
-            String firstName = rs.getString("Fname");
-            String lastName = rs.getString("Lname");
-            String destination = rs.getString("Destination");
-            String departureDate = rs.getString("DepartureDate");
-            BigDecimal totalPrice = rs.getBigDecimal("TotalPrice");
-            
-            Object[] record = new Object[]{firstName, lastName, destination, departureDate, totalPrice};
-            
-            model.addRow(record);
-        }
-        
-        tbPartecipants.setModel(model);
-        
-    } catch (Exception e) {
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            PreparedStatement stmt = conn.prepareStatement("UPDATE partecipants p INNER JOIN travel t ON p.Destination = t.Destination SET p.TotalPrice = (t.DayPrice * t.Length)");
+            stmt.executeUpdate();
+
+            stmt = conn.prepareStatement("SELECT Fname, Lname, Destination, TotalPrice FROM pinastravel.partecipants ORDER BY Lname DESC");
+            ResultSet rs = stmt.executeQuery();
+
+            DefaultTableModel model = (DefaultTableModel) tbPartecipants.getModel();
+            model.setRowCount(0);
+
+            while (rs.next()) {
+                String Nome = rs.getString("Fname");
+                String Cognome = rs.getString("Lname");
+                String Città = rs.getString("Destination");
+                BigDecimal PrezzoFinale = rs.getBigDecimal("TotalPrice");
+
+                Object[] record = new Object[]{Nome, Cognome, Città, PrezzoFinale};
+                model.addRow(record);
+            }
+
+            tbPartecipants.setModel(model);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

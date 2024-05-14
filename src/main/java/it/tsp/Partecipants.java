@@ -16,11 +16,17 @@ public class Partecipants {
 
     private String nome;
     private String cognome;
-    private String telefono;
+    private String telefono;    
     private String città;
     private LocalDateTime dataPartenza;
     private BigDecimal prezzofinale;
 
+    public Partecipants(String nome, String cognome, String città) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.città = città;
+    }
+    
     public Partecipants(String nome, String cognome, String telefono, String città, LocalDateTime dataPartenza, BigDecimal prezzofinale) {
         this.nome = nome;
         this.cognome = cognome;
