@@ -1,13 +1,14 @@
 package Boundary;
 
+import Entity.AccounTurist;
 import Entity.Partecipants;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
-public class CreaPartecipants {
+public class PartecipantsManager {
     private EntityManager em;
 
-    public CreaPartecipants(EntityManager em) {
+    public PartecipantsManager(EntityManager em) {
         this.em = em;
     }
 
@@ -22,4 +23,15 @@ public class CreaPartecipants {
             throw e;
         }
     }
+    public void deletePartecipant(AccounTurist partecipant) {
+    EntityTransaction tx = em.getTransaction();
+    try {
+        tx.begin();
+        em.remove(partecipant);
+        tx.commit();
+    } catch (Exception e) {
+        tx.rollback();
+        throw e;
+    }
+}
 }
