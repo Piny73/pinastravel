@@ -21,15 +21,5 @@ public class AccounTuristManager {
             throw e;
         }
     }
-    public void deleteAccount(AccounTurist account) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            em.remove(account);
-            tx.commit();
-        } catch (Exception e) {
-            tx.rollback();
-            throw e;
-        }
-    }
+    
 }

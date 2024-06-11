@@ -6,8 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+
 
 @Entity
 @Table (name = "partecipants")
@@ -18,79 +17,86 @@ public class Partecipants {
     @Column(name = "idPartecipants")
     private Long idPartecipante;
 
-    @Column(name = "Fname", nullable = false)
-    private String nome;
+    @Column(name = "idAccounturist")
+    private Long idAccounTurista;
 
-    @Column(name = "Lname",nullable = false)
-    private String cognome;
+    @Column(name = "idTravel")
+    private Long idViaggio;
 
-    @Column(name = "Phone",nullable = false)
-    private String telefono;
-
-    @Column(name = "Destination",nullable = false)
-    private String città;
-
-    @Column(name = "DepartureDate", nullable = false)
-    private LocalDateTime dataPartenza;
-
-    @Column(name = "TotalPrice", nullable = false, precision = 10, scale = 2)
-    private BigDecimal prezzofinale;
-
-    // Getters and Setters
-    public Long getId() {
+    public Long getIdPartecipante() {
         return idPartecipante;
     }
 
-    public void setId(Long idPartecipante) {
+    public void setIdPartecipante(Long idPartecipante) {
         this.idPartecipante = idPartecipante;
     }
 
-    public String getNome() {
-        return nome;
+    public Long getIdAccounTurista() {
+        return idAccounTurista;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setIdAccounTurista(Long idAccounTurista) {
+        this.idAccounTurista = idAccounTurista;
     }
 
-    public String getCognome() {
-        return cognome;
+    public Long getIdViaggio() {
+        return idViaggio;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public void setIdViaggio(Long idViaggio) {
+        this.idViaggio = idViaggio;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public Partecipants(Long idPartecipante, Long idAccounTurista, Long idViaggio) {
+        this.idPartecipante = idPartecipante;
+        this.idAccounTurista = idAccounTurista;
+        this.idViaggio = idViaggio;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((idPartecipante == null) ? 0 : idPartecipante.hashCode());
+        result = prime * result + ((idAccounTurista == null) ? 0 : idAccounTurista.hashCode());
+        result = prime * result + ((idViaggio == null) ? 0 : idViaggio.hashCode());
+        return result;
     }
 
-    public String getCittà() {
-        return città;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Partecipants other = (Partecipants) obj;
+        if (idPartecipante == null) {
+            if (other.idPartecipante != null)
+                return false;
+        } else if (!idPartecipante.equals(other.idPartecipante))
+            return false;
+        if (idAccounTurista == null) {
+            if (other.idAccounTurista != null)
+                return false;
+        } else if (!idAccounTurista.equals(other.idAccounTurista))
+            return false;
+        if (idViaggio == null) {
+            if (other.idViaggio != null)
+                return false;
+        } else if (!idViaggio.equals(other.idViaggio))
+            return false;
+        return true;
     }
 
-    public void setCittà(String città) {
-        this.città = città;
-    }
-
-    public LocalDateTime getDataPartenza() {
-        return dataPartenza;
-    }
-
-    public void setDataPartenza(LocalDateTime dataPartenza) {
-        this.dataPartenza = dataPartenza;
-    }
-
-    public BigDecimal getPrezzofinale() {
-        return prezzofinale;
-    }
-
-    public void setPrezzofinale(BigDecimal prezzofinale) {
-        this.prezzofinale = prezzofinale;
+    @Override
+    public String toString() {
+        return "Partecipants [idPartecipante=" + idPartecipante + ", idAccounTurista=" + idAccounTurista
+                + ", idViaggio=" + idViaggio + ", getIdPartecipante()=" + getIdPartecipante()
+                + ", getIdAccounTurista()=" + getIdAccounTurista() + ", getIdViaggio()=" + getIdViaggio()
+                + ", hashCode()=" + hashCode() + ", getClass()=" + getClass() + ", toString()=" + super.toString()
+                + "]";
     }
 
 }

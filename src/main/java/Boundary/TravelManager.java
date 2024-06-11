@@ -1,6 +1,6 @@
 package Boundary;
 
-import Entity.AccounTurist;
+
 import Entity.Travel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -23,15 +23,5 @@ public class TravelManager {
             throw e;
         }
     }
-    public void deleteTravel(AccounTurist travel) {
-    EntityTransaction tx = em.getTransaction();
-    try {
-        tx.begin();
-        em.remove(travel);
-        tx.commit();
-    } catch (Exception e) {
-        tx.rollback();
-        throw e;
-    }
-}
+    
 }
