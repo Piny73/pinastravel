@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -90,6 +91,10 @@ public class WinViaggi extends javax.swing.JFrame {
         txFnameP = new javax.swing.JTextField();
         btPartecipants = new javax.swing.JButton();
         txLnameP = new javax.swing.JTextField();
+        btDeleteTurist = new javax.swing.JButton();
+        btDeleteTravel = new javax.swing.JButton();
+        btDeletePartecipants = new javax.swing.JButton();
+        labelD = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -331,6 +336,15 @@ public class WinViaggi extends javax.swing.JFrame {
             }
         });
 
+        btDeleteTurist.setText("Cancella");
+
+        btDeleteTravel.setText("Cancella");
+
+        btDeletePartecipants.setText("Cancella");
+
+        labelD.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        labelD.setText("Per cancellare un account seleziona dalla lista e clicca su:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -358,7 +372,7 @@ public class WinViaggi extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txFname, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(413, 413, 413))
+                                .addGap(529, 529, 529))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbPinasTravel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -380,7 +394,8 @@ public class WinViaggi extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txDestinationP, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
                                             .addComponent(txLnameP)
-                                            .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(txFnameP, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btDeletePartecipants))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3)
@@ -404,19 +419,29 @@ public class WinViaggi extends javax.swing.JFrame {
                                     .addComponent(txDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(labelD)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btDeleteTurist)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jScrollPane2)
                                     .addComponent(jScrollPane1))))
                         .addGap(20, 20, 20))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbNewTravel)
-                            .addComponent(lbNewAccounTurist, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btSigninTravel)
-                                .addComponent(lbDepartureDate)))
+                            .addComponent(lbNewAccounTurist, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 614, Short.MAX_VALUE)
                         .addComponent(lbTravel)
-                        .addGap(319, 319, 319))))
+                        .addGap(319, 319, 319))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btSigninTravel)
+                            .addComponent(lbDepartureDate))
+                        .addGap(18, 18, 18)
+                        .addComponent(btDeleteTravel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,8 +475,11 @@ public class WinViaggi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btSigninTurist)
-                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btSigninTurist)
+                            .addComponent(btDeleteTurist)
+                            .addComponent(labelD))
+                        .addGap(51, 51, 51)
                         .addComponent(lbNewTravel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -478,7 +506,9 @@ public class WinViaggi extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btSigninTravel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSigninTravel)
+                    .addComponent(btDeleteTravel))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbPartecipants)
@@ -498,9 +528,11 @@ public class WinViaggi extends javax.swing.JFrame {
                             .addComponent(txDestinationP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbDestinationP))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btPartecipants))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btPartecipants)
+                            .addComponent(btDeletePartecipants)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 125, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
         );
 
         pack();
@@ -570,6 +602,31 @@ public class WinViaggi extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btSigninTuristActionPerformed
+
+    private void btDeleteTuristActionPerformed(java.awt.event.ActionEvent evt) {
+    int selectedRow = lstAccounTurist.getSelectedIndex();
+    if (selectedRow == -1) {
+        System.out.println("Seleziona un turista dalla lista");
+        return;
+    }
+
+    String nome = (String) lstAccounTurist.getModel().getElementAt(selectedRow);
+    String cognome = (String) lstAccounTurist.getModel().getElementAt(selectedRow);
+    try {
+        conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM accounturist WHERE Fname = ? AND Lname = ?");
+        stmt.setString(1, nome);
+        stmt.setString(2, cognome);
+        int rows = stmt.executeUpdate();
+        System.out.println("Row deleted: " + rows);
+
+        refreshListaccounturist();
+        txEmail.setText("");
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+}
+
 
     private void txLengthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txLengthActionPerformed
         // TODO add your handling code here:
@@ -740,12 +797,16 @@ public class WinViaggi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btDeletePartecipants;
+    private javax.swing.JButton btDeleteTravel;
+    private javax.swing.JButton btDeleteTurist;
     private javax.swing.JButton btPartecipants;
     private javax.swing.JButton btSigninTravel;
     private javax.swing.JButton btSigninTurist;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel labelD;
     private javax.swing.JLabel lbAccounTurist;
     private javax.swing.JLabel lbCarriage;
     private javax.swing.JLabel lbDayPrice;

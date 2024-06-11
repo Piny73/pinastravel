@@ -54,7 +54,7 @@
                                       <Component id="txFname" min="-2" pref="301" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="413" pref="413" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="529" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lbPinasTravel" min="-2" max="-2" attributes="0"/>
@@ -82,6 +82,7 @@
                                           <Component id="txDestinationP" pref="346" max="32767" attributes="0"/>
                                           <Component id="txLnameP" max="32767" attributes="0"/>
                                           <Component id="txFnameP" min="-2" pref="344" max="-2" attributes="0"/>
+                                          <Component id="btDeletePartecipants" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -113,6 +114,13 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Component id="labelD" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btDeleteTurist" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -124,14 +132,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbNewTravel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lbNewAccounTurist" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="btSigninTravel" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbDepartureDate" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                       <EmptySpace pref="614" max="32767" attributes="0"/>
                       <Component id="lbTravel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btSigninTravel" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbDepartureDate" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btDeleteTravel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -176,8 +189,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btSigninTurist" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btSigninTurist" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btDeleteTurist" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="lbNewTravel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -212,7 +229,10 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btSigninTravel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btSigninTravel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btDeleteTravel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbPartecipants" min="-2" max="-2" attributes="0"/>
@@ -236,11 +256,14 @@
                           <Component id="lbDestinationP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btPartecipants" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btPartecipants" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btDeletePartecipants" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Component id="jScrollPane3" min="-2" pref="177" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="125" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="126" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -580,6 +603,29 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txLnamePActionPerformed"/>
         <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="txLnamePPropertyChange"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btDeleteTurist">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancella"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btDeleteTravel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancella"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btDeletePartecipants">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancella"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelD">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Consolas" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Per cancellare un account seleziona dalla lista e clicca su:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
