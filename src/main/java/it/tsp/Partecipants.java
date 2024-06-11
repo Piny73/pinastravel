@@ -21,7 +21,7 @@ public class Partecipants {
     private LocalDateTime dataPartenza;
     private BigDecimal prezzofinale;
 
-    public Partecipants(String nome, String cognome, String città) {
+    public Partecipants(String nome, String cognome, String città, LocalDateTime datapartenza) {
         this.nome = nome;
         this.cognome = cognome;
         this.città = città;
