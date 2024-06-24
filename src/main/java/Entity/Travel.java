@@ -34,6 +34,10 @@ public class Travel {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime datapartenza;
 
+    public Travel(String text, int int1, float float1, String text2, String text3) {
+        //TODO Auto-generated constructor stub
+    }
+
     // Getters and Setters
     public Long getId() {
         return idViaggio;

@@ -1,6 +1,5 @@
 package Boundary;
 
-
 import Entity.Partecipants;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -23,5 +22,6 @@ public class PartecipantsManager {
             throw e;
         }
     }
-   
+
+    
 }

@@ -11,7 +11,7 @@ public class AccounTurist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idAccounturist")
-    private Long idAccounTurista;
+    private Long idAccounTurist;
 
     @Column(name = "Fname",nullable = false)
     private String nome;
@@ -25,13 +25,22 @@ public class AccounTurist {
     @Column(name = "Email",nullable = false, unique = true)
     private String email;
 
-    // Getters and Setters
-    public Long getId() {
-        return idAccounTurista;
+    
+
+    public AccounTurist(String nome, String cognome, String telefono, String email) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.telefono = telefono;
+        this.email = email;
     }
 
-    public void setidAccounTurista(Long idAccounTurista) {
-        this.idAccounTurista = idAccounTurista;
+    // Getters and Setters
+    public Long getId() {
+        return idAccounTurist;
+    }
+
+    public void setidAccounTurista(Long idAccounTurist) {
+        this.idAccounTurist = idAccounTurist;
     }
 
     public String getNome() {
@@ -65,4 +74,5 @@ public class AccounTurist {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
