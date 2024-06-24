@@ -1,5 +1,7 @@
 package it.tsp.Boundary;
 
+import java.util.List;
+
 import it.tsp.Entity.AccounTurist;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -20,6 +22,9 @@ public class AccounTuristManager {
             tx.rollback();
             throw e;
         }
+    }
+    public static List<it.tsp.Entity.AccounTurist> atList() {
+        throw new UnsupportedOperationException("Unimplemented method 'atList'");
     }
     
 }

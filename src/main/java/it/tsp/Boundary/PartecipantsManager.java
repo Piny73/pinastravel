@@ -1,5 +1,7 @@
 package it.tsp.Boundary;
 
+import java.util.List;
+
 import it.tsp.Entity.Partecipants;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -21,6 +23,11 @@ public class PartecipantsManager {
             tx.rollback();
             throw e;
         }
+    }
+
+    public static List<it.tsp.Entity.Partecipants> pList() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'pList'");
     }
 
     
