@@ -1,4 +1,4 @@
-package Entity;
+package it.tsp.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -51,6 +51,10 @@ public class Partecipants {
         this.idPartecipante = idPartecipante;
         this.idAccounTurista = idAccounTurista;
         this.idViaggio = idViaggio;
+    }
+
+    public Partecipants(int int1, int int2) {
+        //TODO Auto-generated constructor stub
     }
 
     @Override

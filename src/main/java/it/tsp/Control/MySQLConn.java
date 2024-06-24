@@ -1,4 +1,4 @@
-package Control;
+package it.tsp.Control;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

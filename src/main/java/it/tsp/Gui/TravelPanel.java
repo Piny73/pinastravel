@@ -1,8 +1,8 @@
-package Gui;
+package it.tsp.Gui;
 
 import javax.swing.*;
 
-import Entity.Travel;
+import it.tsp.Entity.Travel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

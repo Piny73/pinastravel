@@ -1,6 +1,6 @@
-package Boundary;
+package it.tsp.Boundary;
 
-import Entity.AccounTurist;
+import it.tsp.Entity.AccounTurist;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 

@@ -1,6 +1,6 @@
-package Boundary;
+package it.tsp.Boundary;
 
-import Entity.Partecipants;
+import it.tsp.Entity.Partecipants;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 

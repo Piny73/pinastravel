@@ -1,7 +1,7 @@
-package Gui;
+package it.tsp.Gui;
 import javax.swing.*;
 
-import Entity.AccounTurist;
+import it.tsp.Entity.AccounTurist;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
