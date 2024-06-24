@@ -1,26 +1,19 @@
 package it.tsp.Control;
 
+import java.util.List;
+
+import it.tsp.Entity.AccounTurist;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 
 public class MySQLConn {
-    private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
-    
-    public MySQLConn() {
-        this.entityManagerFactory = Persistence.createEntityManagerFactory("pinastravel"); 
-        this.entityManager = entityManagerFactory.createEntityManager();
-    }
-    
-    public void close() {
-        entityManager.close();
-        entityManagerFactory.close();
-    }
-    
-    public EntityManager getEntityManager() {
-        return entityManager;
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pinastravel");
+    private static EntityManager em =emf.createEntityManager();
+
+    public static List<AccounTurist> getatList() {
+       return em.createQuery("SELECT at FROM AccounTurist at", AccounTurist.class).getResultList();
     }
     }
 

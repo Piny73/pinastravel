@@ -2,6 +2,7 @@ package it.tsp.Boundary;
 
 import java.util.List;
 
+import it.tsp.Control.MySQLConn;
 import it.tsp.Entity.AccounTurist;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -24,7 +25,7 @@ public class AccounTuristManager {
         }
     }
     public static List<it.tsp.Entity.AccounTurist> atList() {
-        throw new UnsupportedOperationException("Unimplemented method 'atList'");
+        return MySQLConn.getatList();
     }
     
 }
