@@ -33,15 +33,15 @@ public class WinViaggi extends javax.swing.JFrame {
     ArrayList<Integer> listIdtravel = new ArrayList<Integer>();
     ArrayList<Integer> listIdpartecipants = new ArrayList<Integer>();
 
-    /**
-     * Creates new form WinViaggi
+    
+     /* Creates new form */
     
     public WinViaggi() {
         initComponents();
         refreshListaccounturist();
         refreshListtravel();
         refreshListpartecipants();
-    }*/
+    }
 
 /**
  * This method is called from within the constructor to initialize the form.
@@ -50,7 +50,7 @@ public class WinViaggi extends javax.swing.JFrame {
  */
 
 // <editor-fold defaultstate="collapsed" desc="Generated
-// Code">//GEN-BEGIN:  */
+// Code">                
 private void initComponents() {
 
     lbPinasTravel = new javax.swing.JLabel();
@@ -478,7 +478,7 @@ private void initComponents() {
                                     .addContainerGap(321, Short.MAX_VALUE))));
 
     pack();
-}// </editor-fold>//GEN-END:initComponents
+}// </editor-fold>                        
 
 private void txFnameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txFnameActionPerformed
     // TODO add your handling code here:
@@ -641,7 +641,7 @@ private void btPartecipantsActionPerformed(java.awt.event.ActionEvent evt) {// G
     }
 
 }
-/* 
+
 public static void main(String args[]) {
     try {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -665,7 +665,7 @@ public static void main(String args[]) {
             new WinViaggi().setVisible(true);
         }
     });
-} */
+} 
 
 // Variables declaration - do not modify//GEN-BEGIN:variables
 private javax.swing.JButton btPartecipants;
@@ -704,7 +704,7 @@ private javax.swing.JTextField txLname;
 private javax.swing.JTextField txPhone;
 
 // End of variables declaration//GEN-END:variables
-/* 
+
 private void refreshListaccounturist() {
     try {
         conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -721,8 +721,8 @@ private void refreshListaccounturist() {
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
-}*/
-/*
+}
+
 private void refreshListtravel() {
     try {
         conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -740,8 +740,8 @@ private void refreshListtravel() {
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
-}*/
-/* 
+}
+
 private void refreshListpartecipants() {
     try {
         conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -764,5 +764,5 @@ private void refreshListpartecipants() {
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
-}*/
+}
 }
